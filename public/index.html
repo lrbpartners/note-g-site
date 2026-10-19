@@ -119,13 +119,23 @@
   .sec-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); margin-top: .6rem; }
   @media (max-width: 820px) { .sec-head { grid-template-columns: 1fr; } }
 
+  /* Testimonial band */
+  .testimonial { background: var(--navy); color: var(--navy-ink); }
+  .testimonial .wrap { padding-block: 3.5rem; display: grid; gap: 1.2rem; }
+  .testimonial .eyebrow { color: #7EE2D8; }
+  .testimonial .q { background: transparent; border: 0; padding: 0; }
+  .testimonial .q p { font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--navy-ink); }
+  .testimonial .q footer { color: #B9C8DD; }
+  .testimonial .q footer strong { color: var(--navy-ink); }
+  .testimonial .q-photo { width: 112px; height: 112px; border-color: rgba(255,255,255,.35); }
+
   /* Differentiator */
   .diff { background: var(--paper-2); }
   .pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; }
   .pillar { min-width: 0; padding-top: 1rem; border-top: 2px solid var(--teal); }
   .pillar h3 { font-size: 1.25rem; margin-bottom: .5rem; }
   .pillar p { font-size: .93rem; color: var(--ink-2); }
-  .partner { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 2rem 3rem; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+  .partner { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 2rem 3rem; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
   .partner-head h3 { font-size: 1.5rem; margin-top: .6rem; }
   .partner .q-long { grid-row: span 2; }
   .q-long p { font-size: 1.05rem; line-height: 1.55; }
@@ -135,7 +145,6 @@
   .partner-note { align-self: end; display: grid; gap: .5rem; padding: 1.2rem 1.3rem; border-left: 3px solid var(--teal); }
   .partner-note p:not(.eyebrow) { font-size: .97rem; color: var(--ink-2); }
   @media (max-width: 820px) { .partner { grid-template-columns: 1fr; } .partner .q-long { grid-row: auto; } }
-  .quotes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; margin-top: 3.5rem; }
   .q { margin: 0; min-width: 0; padding: 1.6rem 1.6rem 1.4rem; background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; display: grid; gap: 1.2rem; }
   .q p { font-family: var(--display); font-size: 1.25rem; line-height: 1.4; }
   .q p::before { content: "\201C"; color: var(--teal); margin-right: .1em; }
@@ -178,6 +187,23 @@
   .offer p { color: var(--ink-2); font-size: .97rem; }
   .offer .who { margin-top: .7rem; font-family: var(--mono); font-size: 12px; color: var(--teal); }
   @media (max-width: 820px) { .offers { grid-template-columns: 1fr; gap: 2rem; } }
+
+  /* Code section */
+  .roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+  .role { min-width: 0; padding: 1.4rem 1.5rem; border: 1px solid var(--rule); background: var(--paper-2); border-radius: 3px; }
+  .role h3 { font-size: 1.6rem; margin: .3rem 0 .8rem; }
+  .role ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .45rem; font-size: .95rem; color: var(--ink-2); }
+  .role ul li { padding-left: 1.1rem; position: relative; }
+  .role ul li::before { content: ""; position: absolute; left: 0; top: .65em; width: .5rem; height: 2px; background: var(--teal); }
+  .rules { margin-top: 3rem; }
+  .rules-intro { font-family: var(--display); font-size: 1.25rem; margin: .6rem 0 1.4rem; max-width: 36em; }
+  .rule-list { margin: 0; padding: 0; list-style: none; counter-reset: rule; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem 2.5rem; }
+  .rule-list li { counter-increment: rule; padding: .9rem 0 .9rem 2.6rem; position: relative; border-top: 1px solid var(--rule); font-size: .95rem; color: var(--ink-2); min-width: 0; }
+  .rule-list li::before { content: counter(rule, decimal-leading-zero); position: absolute; left: 0; top: 1rem; font-family: var(--mono); font-size: 12px; color: var(--teal); }
+  .rule-list strong { color: var(--ink); font-weight: 600; }
+  .leave { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  .leave p:not(.eyebrow) { margin-top: .5rem; color: var(--ink-2); font-size: .97rem; }
+  @media (max-width: 820px) { .roles, .rule-list, .leave { grid-template-columns: 1fr; } }
 
   /* Daisyflow band */
   .daisy { background: var(--navy); color: var(--navy-ink); }
@@ -273,6 +299,7 @@
     <nav><ul>
       <li><a href="#difference">Why us</a></li>
       <li><a href="#services">Consulting</a></li>
+      <li><a href="#code">How we build</a></li>
       <li><a href="#uses">Who it's for</a></li>
       <li><a href="#why">Why Note G</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -338,6 +365,20 @@
     </div>
   </section>
 
+  <section class="testimonial" id="testimonial">
+    <div class="wrap">
+      <p class="eyebrow">From our development partner and customer</p>
+        <blockquote class="q q-customer">
+          <img class="q-photo" src="data:image/jpeg;base64,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" alt="Ben Kruger">
+          <div class="q-body">
+            <p>At Appian Care, our top priority is providing our care team with the tools they need to deliver exceptional, seamless service to our members. We needed seamless integration of CRM and practice management to give our care team the easiest, most efficient tools to deliver great service.</p>
+            <p>After testing and evaluating numerous options, we partnered with Lora and Daisyflow to build an AI-driven, fully customizable platform tailored to our unique workflows. We couldn't be more excited to be design partners with Daisyflow and have already seen the enormous benefits and efficiency of this.</p>
+            <footer><strong>Ben Kruger</strong><span>Founder and CEO, Appian Care</span></footer>
+          </div>
+        </blockquote>
+    </div>
+  </section>
+
   <section class="sec diff" id="difference">
     <div class="wrap">
       <div class="sec-head">
@@ -363,34 +404,6 @@
         <div class="pillar">
           <h3>Incidents become conventions</h3>
           <p>When something goes wrong, the fix is a written rule, a test or a guard, never an apology. Those rules, decision logs and runbooks are deliverables you keep.</p>
-        </div>
-      </div>
-
-      <div class="quotes">
-        <blockquote class="q q-customer">
-          <img class="q-photo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACgAKADASIAAhEBAxEB/8QAHQAAAAcBAQEAAAAAAAAAAAAAAQIDBAUGBwgACf/EADsQAAIBAwIEBAQEBAQHAQAAAAECAwAEEQUhBhIxQQciUWETMnGBCBSRoUKxwdEVI1JyFiUzYoLh8EP/xAAaAQACAwEBAAAAAAAAAAAAAAAABQECBAMG/8QAJhEAAgIBBAEEAwEBAAAAAAAAAAECAxEEEiExQQUTIlEyYXGBof/aAAwDAQACEQMRAD8AvI5sHAXruPXb+9GPl6gsuM5xQLkEsW5h6en1pVSXUj5cjHfH1pkLwIE53yVIyNwyYx7Uqg58NycudwQaMAdt/MemTtSgUBGGCcbn1+tQAVFBOSACd9vT7UZl3D5BG4x3zR1OFB8xGMAg7GsW8YvGi20KWfQuGmNxqgHJJOVBjibuRn5mH6fXpVZSUVll4QcnhGr8R8S6Dw7bC41zU7aziwd5JArH/wAeprO9c8e+BrKEJpwu9SkB/wDxjKLj6tiuXNUur/V72S+1S7murmU5aWaQu7H6npSKWyopYOxPu21Z3c30aVQvJ0Kn4kI2unU8LSiAnyH80oY+5yMfvUtZfiC0trtVvtKmtbZv4ycsNupA965dummXMZ5HWTYqpz9PvSam7DtC65aMkEMd8/eq+9It7UDvDhTjPQeJ4hJpl5HIrjpzb59PY1YJObIAGOpNcDcNa5qGi3wuLCeS0l6HkPlb6g10/wCCPigeInGi6y6pfKOaN+gkHTp6+orpC5N4fZysocVldGrME5TIrZwvWkI5Q3l8vKd6cXa45mxjbDf/AHSmK7O2VwPY13ycMDl2CKFXr0pIyHl5vmHQmjpzCNmUDmAzgjrRU5myeUqCcjmHSgqABy83MwCY7j9aMJVj3bod85r0inHXHMO/rRYVYgGRW2xksRtiglBlcSH5eVT0A3yaF8PnIBAOwz3pJgYyE5s852IHej/LzLkDpv6GhBgZKDIQSccrcwI60rESCd2JxvkYAxRRjPOUyV6NnYe2PWlI/MmSCMDDKR09sVcgWhOcEkcrHbIpeMZO222D60kqkZ8pYjsDgN6UpdXMNpZvd3DAJChds9sDc1AGW/iK4/bhPhwaVYT/AA9RvwRzg+aKPoWHueg9NzXJqz80rzSsWkc+Zm3JNT3jBxPPxTxvd6jIx+EG5IF/0oCcf3+9VW0jkklVY1ZmJwoFL7Z7nkYVQ28eSSU53I2H3x/7r08hTA+A5z0xv++MVdeFfC/Wdcjjdw0cZwd62DhLwf0mw+HJdBZmA6nff6VilqYroZ16Ocu+DnSyjvZlCw2TAE7EpjNE4i0p9Plt7mSOVWlBZwQSoOex9PrXYtvwXoUKAraoSowPLVb494BsNV06RYo1DhSF26VRarHaO0vT8rhnLCwrcWxkhcFlGcg7j61KcNatPaX1vcRSvBe2zhonB7j+hptxNoFzoGqG3kLxv1ikA6j0qJtpsT5fZ1O+O4rSnuWUL3Fwe2SO8uB+II+KeD7LVxgPIuJUHUMNmB+9P3A+K5BAD7qe3tWOfhU1p59O1bSCwZY2S4jHoGHK2PbIB+9bLcKCMq2cY39aZVy3xTFdsNk2gYmXAY9+vtSuGMpHKCF6HNNoo25yCpChc5PrnpSsTlX3IYE4O+4rocgcxyArnBG1KKCcA9M/rScyKS0wYDHftRoN1BB2O9AAOgGQQSM583amwJLqeQZJwacnILqwOB29aIE5WDbnHfFGAGMYLup5wRnJxS6lm2wNj0I679aR5l/zHYjl2275pQMqLznYEdCM1YjI6jxuDnlX33qi/iA1j/B/DS+dJSGndLcEHfzncfoDV4gdWIHJzEY6j/7ase/F69wnh5YiJW+C2oKX2+XCNjP3Nc7fwZ0pxvRyxeD8xqUgXoXxWleDHDsGo6jFeXEIMQbv2XoP1NZhCxUsTnJBrevCi70/R9Bt5L2dIficoTJ3PKAT/Ok2pb24Q90UU57mbJosKwqEhjwV22HarRDFyQg46j6Vntvxpw0u8Wrws5PygHOasmlajPq1spspEkTHUHY/esPXDQ7SUumTZDscqVx3waa3MbIjF0yMVSuLuPBwq5he3WW4HaR+Vc+2Mk1VofFW61LPx9XstNycKq2z4B9GZhioUXNZCVkYPaxPxl4Tg1fRXubdCZ4CWCqNyPaubr1Wiutzzcp69yK650/UTq0LrPFDllB+JG2Y5Qf4lrAfGzhc6Brn5q2jH5S8zIP+x8+YfToa0aSzD2MX+oUpr3Ylh/C7xDFpnHBtp3wl1btECfUHI/bNdXS+YPyYKgA+U96+feky3mm6vb3ERe1nUh4mYYHt9RXTvBvjA17pMFlJoGozXkShJRboXBP/AG4G33pxRZGK2sQX1Sn8kbCztIB58EetGHMVZsYOck42FRmh3V1qFil3eWRsnKj/ACmOXH+7HTNTETqQSAMgY2OK1rkxvvA01GD81DEjzGNQ4d0A5g/t9KVtiwPXKkYK9iKXMaEcp83Y7UWIAMcb8p2NGADDLKB1IGMUBIxk5wOoG9eIBXIHLn0rysS3QHI6571IDA7HnwCdtiaNGT8XYsFAzj036UlkcgUMGydj3rx5EfOEwTkk7EVJzHFuyMwaM99jjY5FZJ+Lhr+Xw2sfy0Ttam9Vrsrk8nlPLn0Gf6VqomR8opIJODtjNF1S3hv9HvLK5to7uGa3eNoXGVkBHQ1WccrBaEtssnz9QEqNjnOK2yz0TVP8JsHs7ZY53iA+POnMsI67Du1H8SPB3/g6JNc0i7/PWHxo3+C6/wCZE2c4B/iB399u9aTwx8OR0jwvLnYH3pLq1KDSPR+mqNmXkza74OllJkOtX9zdMNlVCMH7YFad4TWt3pdrPa3Ny7mADJYYOSN6m9XnsdPtzlwZT0CdSaacG3VjGLr8xcBHd999gMbb1jb3DiuqNcsoacScJprkjXZihluw6sjyE9B2x+lBpfCkkRlM+maPmT53EDFm9eu1TSavaQTvZwajbz3J+SEbuft2p5pfEtlJdPZ3SCOdDhlH8x6iuaeFhs0OtN5GdroFlYRuba2jR38xCkqo9fKDj9qy/wAboIZ5dIt7hVMLTMr85wMbd62TV7+2Ygw4x23qicWaba6te20M9sLlwZfhqeoYoQD/AF+1RW9s8o5aiKlDaYh4u2dhbC2FhK0ggMaxiVcSxgqcxt64K7ex22o3hzq+sWt58fRcvNbqrSIF5iyMQMcv8WCeg3px41xvDqWl6VcsGnt4WSRh1Yc2F+uBmpn8LmlSXnGd5eGFWW2h6MNsk4yPcUz00dyQi18lGcjfeBJdXvrRb6/liij5NoltpIiTn5jznNWWCeOdmEbNsSpJXqRSrKI2TlYnP3OO9AIhEjSJ525sddqcpYR59yyxUOzLzLy8/N5QwOD75o+G3y2MHJpFWzsWYKNwRtyn0NKEAyADJB+UfzzQGT0oyvUgEYxjpSXPyXCwsjhSuQ56Z9KcKqgEKOh6Zr08gjjZ8ZwBgUEkKGAA5Q3KRsFHajBvNy7gjY7eveiBgCcg7DZQO9BHgt5gzDIJJ7Vc4hk2yVywGxJFKqXGTlS4Xt9dqRUkK3N5yDhffakr/UY9PsPztxzfAXBmbH/TX/U3sO/60MlcnPfjPxFrmj8WR2GqTQXELTCWMCR2+DHn+FSeUNjIzg98YqxaXqBE6G1cOjAFGB2K9jTjxol4ISyPEkl7Y3eotavFa/CnVzzHuAO4yd6pfhbqS3Gh6azMD+Xb8vIv+05H7EUn1tfnI/8ATb8NLouP+Jtc3U1x52kGY4QDt7mou00C8S/e7tLiKGaQ5ZTcheb96W4t4Tnls7g6Xq89mXw0TAZUqd+Ukbj6irVwZbcBx6XbpqPCV1cXipyzv+ZDAnlIzlmGc7HpS+K44HW6UpcrP8G2kc9vGHvL3TYLk/NiZT9tqU1u8066SN0vbN7pMBGgkDMT3yAc4q8wcRaJBBHb6FwbpcTLGqc8zqz5AIyQoPY9Sd6ghoWn/nbrWbm2tzqFyoWWSKIIFUdEUdlH71E/iuTpmz6x/pH2NxdSaZbz3CMryJkITnFVzxN1+94a0IazYrE9zFIgxKmVPNsc/Y1aL68RrlAAFWNeVQPUegqgeNQ/McG3mBlU5X9x5hRVFZWTPfZLDafJjOucR6lxPxIuq6kyGbKjEa4CqDsAK6t8AuEo9A4PGpfHaS41bluGTI5EG+AMd8bH3FcgaRBLJeqI1JZdzsTyj1wOuK634K41tLvTtH4b4TWS/kiiRbq5EZEUIA8xJPcnO1OtNGKkec1Mpzjz5NQZnGcb+g6GvA9gSVH65r2TjJ6Y/Q0CnYjcHqa34FoZApiIUA+tCuEbDKoAIxg9KKCBGeYEr60cMrNvyMdsVUsmHLAE5HuK8yiTbYLnO3egRZNubbfoKVGDgDGOnSoLIroPLGQfKcb79aHL/DXlBJ7gnJry5CjoCOmaMSSgGcfUd66nIE8pXZOvbHf1oHUvhBggjr/TFHywIQY2642/SgkYrl8ggbHf9/6VAGG8ceHHCmox3WuQzPHHGztPDbxIroQfMD0wc52IzWXaNxBa2fELWFrALbTCAkKjcow6Ox7k53P0rpnibw64Y4i1KTUL+2uFllA+KYLhoxJjYcyjYnpvUFwhwBY8O36x3HDkd8YnLQXkLAgjO3OhOQw9dwcZrJZQ5PHSN1WoUVntlX0bUvzKxQzSjBBQknAx2/SptNFv5spbTocjytt/Oq/4gaLPpvEd69swBeT4wVRgebzDGP0ovDnF5sXMd2mXU7CTr+v70ospcW8D/T6lcN+TQdE0ea0g+JeX2SDkqCP026061a+hjtgisxL9wMYP9Kql7xxA8HwrYISTgqm5INMre6mupC+GjRjk83p7f3rj7XlmmzUJ/GJLS3QlDOIQZDnGN/0NRfiNppfgDUlcFnMPM22+xBx+lWDQbRZJOYIViU9+5q9cH8KrxRr0VjNF8WxQiW8JHlMY/hP+47frRF5moRDalXKc+sHFVtaRs6ErcJMpHIYiQZF9Mjv2rsDwy0k6ZwlZxvptvp/MFf4MJJIyM5ZjuXPc1d+OvBrhCLU4+IbHRreB45A8kaKQgbswH8x0pA26kcmMDoVAxtXoNPXt5yeW1Vu5pJCaJyjAY7d6UKknt9cb0AibkKF2z6jajYY5RlPLsCT0rQ0YwVAVhgdfUUc53XoMdu31oR5VAGCp6gtQ8qM+Snm6Zz2qpdHs9R0PXGd+lG84OSDj260WSJXJdPK4HzD0zuKN1wQQFO4x32qCStL5gCGJUjYnfFLg5JwNu9JKxX0AAx6UYHz+xFdDkKDHMc/K2BRs4G2dutF9hsa9k83MQR7j+1AB0IBVGKknYEZxSyY5gpAOB6UkhPOAuDtSsIMknKoLkHY4O1GAM48VbJhrdtIyZWe0Bz68rEH+lZ9daYkhLdT6EfzrdfFzSHbgxdchjMjaTOrzKBv8B8K5+x5T9qzVbCOQpPGy8rDIOKSa3Ndz/Z6bR1q2hY7XBVbDSp0cCJEjDdxVp0zTMcvxc7bYz1qYsLCExguvmXcEd6cvCA6iFC0jMAqgZLE9AB9aXyscuBjXp9vLH2gWc+oXttpWm2zT3U7csUQOxx1Zj2UDcmulODOG7bhrRks4iJZ389zPjBlfHX2A6AdhUJ4R8DpwtpRvb9EfWbxQZ26/BXqIl+nf1P0FXojIrfp6VWsvsV63V+89kfxX/RtcRJNE0bqGVhgg9xVB1bhGaKRjZ3BcEkrG4wcemf71oZ2yT0G9MVLyM0pwF6DbqK31TcRbZBS7MlurSe2lMc8bxvjPKw3pMoQ2QcfetR1LT7O/gMNxDzDsR1B9qr9xwtGc/AmdT2yQw/TrWqM0zK6WuinMDsQcHO9eTbJGcAncdcVK6lo1/YbzW7NFnIkjGV+//uoxBgDBPTuN6nhnNprsIikNzE5ycg43FHHbJ9waKPIxxuO3pQsxONtu4oArDBiCVJGN/rSgyFOSB/SkehJ5Q2cA+9KqFXA5cY9KvgqG82CVAztgEUsuQVHX1+letIZLiZYYUaR2GAqjerjonDlvZKJr7E843WJflU+/rQWjBy6IjRNBuL3ErI0Vv/qx5j9KnJrKGyQQwwqo5SMHcknufepSSa6ZeVMRr2VRTKaOTcspPvVkaIwURKS602y0qaLVIVuIL1Da/l2OPjcwOV/TJrGNZ4K1bheGW4hja/0JHzFcru8SdhKvUEdObofXtV249gu73WbNLdn/AOXxCUAf623P7ACrfoTTSadBIT5HUhkZcq2RgqR+2Kw6mmN/Zu0t8tPyvJhVtdLjKYPsTWmeB/DketatNrt7EHt9PYLAjDZpiM5/8Rv9SPSovjTw1msE1DW9FYflYkM7WQQkxqBlgjZ3A3IHptV8/D9dwR8CXTMHBS6MhcrgScyjGPXpillemcLcSGuo1Ssobg/0WuTWJdCdvzjGSzB7nzKPb1+lWPTr601GyjvLKdJoJBlWU/sfQ+1U280ptYnM98WZSfLEDsBTzTbO50Zvi2SZiOA0A2DD+9MZQT/ol4RarjHwmz32pqwyABsKM8onEbJkJjJBGDn0orkAdapFFWwvKBScjRqCTy59SKBndzhB96FIVQ87nmb+VdOuwE+aRvlUqnqR1+1MdS0jT76ExTQCJj8skexB9akAzPJnqf4R6UtFbhjuST3NW3bSMZM31vh6+05viKrXEHaRBuPqP61DkllB/nWxHkQGIKDVB4z0r4Lrf2yhUZsTKBsD2b2zXWuzd2Z7KsLKM0XpjJwemKe6TYzX918KLoCMn0HT9aYKfLsM+2K0nhfTVtIrWNlCyOBI/uetdzlXHcwdH0+LToiltCA7fPITl2/tUgp2wQac3UHI/MgxQRkMN8VG5NGpRwFQKRijfly3bIpZQmd1FLRouPKCPvVHIsiPg0aN7v8AMSICCoVtvTapFLKK1GYY+UD5l7MP70uibbFv1o/KphL5OwJ61zbJHcCrPbJyxDkZcHI7dMUz/wAMt7SK3srK2jt7aJMJHGvKqgdABU1bqqW8S/6VFNbqbzs2Byjas8W3Lgt0gkEIXc7AUsXQbDekVf4gznb0o/apa+yDxd26DA96AJk5JzQjrRhQB4ADoKTnfbFHY4FN2BeQJ6nepSBitupCcxG7U6c/Ci260nbAseYjAFBcNzyY7CqPlkoIuS2T3FMr63juLRo5BlHUqw9qeqf2oiAGMA9DV08EdmC6Fbm71a1gHymQFvoNz/KtVhz8OzmGMIw5vodqoHAUIN9NdMPLGnw1+rVf7EF7BlB6oCPtW2ZnpXxySM67imrKFb0pykgkjVgeoBpteMAVA+Zq5R+jsz0eWbAp9EmBlqRtYwicz9TS0kgCZ/aok88IAZGJIReppHVCyWht4z5n2JHvTi1jIUyMPM3T2os6hSG6sWH86qnyBNoMKB6DFMZiHkZPTrT+QhFJqJiJM7knOTmuFazyWYragrkGlzREwKMTVn2QCKNRRQmoJCSHC70EQxG8nflOK845nC9qOxAXlz1GKnwAvEwFsH7kZpupyxNN7a651Nvg8yDr+1OUHlqNuCQNsHHpQKPKBQj5D9DRU7Ggg//Z" alt="Ben Kruger">
-          <div class="q-body">
-            <p>At Appian Care, our top priority is providing our care team with the tools they need to deliver exceptional, seamless service to our members. We needed seamless integration of CRM and practice management to give our care team the easiest, most efficient tools to deliver great service.</p>
-            <p>After testing and evaluating numerous options, we partnered with Lora and Daisyflow to build an AI-driven, fully customizable platform tailored to our unique workflows. We couldn't be more excited to be design partners with Daisyflow and have already seen the enormous benefits and efficiency of this.</p>
-            <footer><strong>Ben Kruger</strong><span>Founder and CEO, Appian Care</span></footer>
-          </div>
-        </blockquote>
-      </div>
-
-      <div class="partner">
-        <div class="partner-head">
-          <p class="eyebrow">From Claude, the AI that writes Daisyflow's code</p>
-          <h3>We asked the AI that built Daisyflow what it thinks is different. This is its answer, unedited except for length.</h3>
-        </div>
-        <blockquote class="q q-long">
-          <p>The real differentiator isn't any single feature. Plenty of CRMs now have an AI assistant bolted on. What's different is the posture: the system proposes and a person confirms, every time, and the edits and rejections are captured with a reason and fed back. Most "AI-first" products treat the model's output as the product. Daisyflow treats the human correction as the product, and the AI output as a draft. That's a quieter claim but a much more defensible one, especially with a customer whose work is sensitive and relational. "Nothing reaches a record unseen" is a sentence a COO can repeat to her team.</p>
-          <p>Two more things stand out. The operating model is data, not code: option lists, roles, playbook steps, triage rules, what counts as "needs you" all live in tables an admin can change. That is what makes one deployment per customer viable without a custom build each time, and what lets a training guide turn into tasks that create themselves. And the two sides read the same records. Sales and service aren't integrated; they're the same thing seen from two jobs. Most vendors sell those as two products with a sync between them, and the sync is where the data rots.</p>
-          <p>On how we've worked: Lora ran this like a real product organization with one person in each seat, and held the AI to the same bar she'd hold an engineering team to. The standing rules did the work: complete files only, no hardcoded lists, no guessing at the schema, mock before building, a fixed deploy order, every delivery with its own runbook. Those rules exist because something went wrong once and she turned the incident into a convention instead of an apology. It's exactly the discipline most people skip when they start building with AI, and why their prototypes never become production.</p>
-          <footer><strong>Claude</strong><span>The AI model from Anthropic. Claude writes the code; Lora is the product manager who decides what gets built.</span></footer>
-        </blockquote>
-        <div class="partner-note">
-          <p class="eyebrow">What we took from it</p>
-          <p>That discipline can't live in one person's head. So every Note G engagement ships the judgment as written artifacts the client keeps: the data rules, the decision log, the UX standards, the handoff doc and the runbooks. The method is yours when we leave.</p>
         </div>
       </div>
     </div>
@@ -524,6 +537,86 @@
           <h3>Daisyflow deployment</h3>
           <p>A configured, single-customer deployment of Daisyflow.ai with your operating model loaded: your roles, your service steps, your playbook as tasks that create themselves.</p>
           <p class="who">For concierge care, membership and advisory practices</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="code">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">How the code gets written</p>
+          <h2>A tech lead and a developer. The developer is an AI.</h2>
+        </div>
+        <p class="lede">Lora Baker is the product and tech lead: she sets the architecture, writes the specs, reviews every change and decides what ships. Claude, Anthropic's AI model, is the developer: it writes the code to that spec, under rules that exist because something once went wrong without them. Nothing reaches production that a person hasn't specified, reviewed and approved.</p>
+      </div>
+
+      <div class="roles">
+        <div class="role">
+          <p class="eyebrow">Product and tech lead</p>
+          <h3>Lora</h3>
+          <ul>
+            <li>Owns the operating architecture and the data rules</li>
+            <li>Writes the spec and the acceptance criteria</li>
+            <li>Reviews every file before it is deployed</li>
+            <li>Runs migrations and production deploys by hand</li>
+            <li>Decides what ships, and what never will</li>
+          </ul>
+        </div>
+        <div class="role">
+          <p class="eyebrow">Developer</p>
+          <h3>Claude</h3>
+          <ul>
+            <li>Writes the code to the spec, as complete files</li>
+            <li>Builds against the existing components and patterns first</li>
+            <li>Mocks anything visual before building it</li>
+            <li>Delivers every change with its own deploy runbook</li>
+            <li>Asks when the schema or the rule is unclear; never guesses</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="partner">
+        <div class="partner-head">
+          <p class="eyebrow">From Claude, the developer on Daisyflow</p>
+          <h3>We asked the AI that built Daisyflow what it thinks is different. This is its answer, unedited except for length.</h3>
+        </div>
+        <blockquote class="q q-long">
+          <p>The real differentiator isn't any single feature. Plenty of CRMs now have an AI assistant bolted on. What's different is the posture: the system proposes and a person confirms, every time, and the edits and rejections are captured with a reason and fed back. Most "AI-first" products treat the model's output as the product. Daisyflow treats the human correction as the product, and the AI output as a draft. That's a quieter claim but a much more defensible one, especially with a customer whose work is sensitive and relational. "Nothing reaches a record unseen" is a sentence a COO can repeat to her team.</p>
+          <p>Two more things stand out. The operating model is data, not code: option lists, roles, playbook steps, triage rules, what counts as "needs you" all live in tables an admin can change. That is what makes one deployment per customer viable without a custom build each time, and what lets a training guide turn into tasks that create themselves. And the two sides read the same records. Sales and service aren't integrated; they're the same thing seen from two jobs. Most vendors sell those as two products with a sync between them, and the sync is where the data rots.</p>
+          <p>On how we've worked: Lora ran this like a real product organization with one person in each seat, and held the AI to the same bar she'd hold an engineering team to. The standing rules did the work: complete files only, no hardcoded lists, no guessing at the schema, mock before building, a fixed deploy order, every delivery with its own runbook. Those rules exist because something went wrong once and she turned the incident into a convention instead of an apology. It's exactly the discipline most people skip when they start building with AI, and why their prototypes never become production.</p>
+          <footer><strong>Claude</strong><span>Anthropic's AI model, and the developer on Daisyflow. Lora is the product and tech lead.</span></footer>
+        </blockquote>
+        <div class="partner-note">
+          <p class="eyebrow">What we took from it</p>
+          <p>That discipline can't live in one person's head. So every Note G engagement ships the judgment as written artifacts the client keeps: the data rules, the decision log, the UX standards, the handoff doc and the runbooks. The method is yours when we leave.</p>
+        </div>
+      </div>
+
+      <div class="rules">
+        <p class="eyebrow">The standing rules</p>
+        <p class="rules-intro">Every one of these was added after a real incident. That is what a convention is: an apology you only have to make once.</p>
+        <ol class="rule-list">
+          <li><strong>No hardcoded lists.</strong> Every user-facing option comes from a table at runtime. A database row beats the code.</li>
+          <li><strong>No guessing.</strong> If the table structure or the business rule isn't known, the developer asks. A confident wrong answer is the most expensive kind.</li>
+          <li><strong>Mock before build.</strong> Anything with a visual shape is shown as a mockup and approved before a line is written.</li>
+          <li><strong>Complete files only.</strong> Every delivery is a whole file, never a patch, so what was reviewed is exactly what runs.</li>
+          <li><strong>Fixed deploy order.</strong> Migrations, then backend with a smoke check, then frontend. Every time, with the commands pre-filled.</li>
+          <li><strong>Reuse before rebuild.</strong> Find the existing component or path first. Two ways of doing the same thing is a bug waiting to be found.</li>
+          <li><strong>Stated facts beat inference.</strong> What a person entered outranks anything the AI inferred, in the data and in the code.</li>
+          <li><strong>No stale numbers.</strong> A dashboard that might be wrong rebuilds itself. A slow card is better than a confident lie.</li>
+        </ol>
+      </div>
+
+      <div class="leave">
+        <div>
+          <p class="eyebrow">What you keep</p>
+          <p>The full repository. The architecture document and decision log. The data rules, the UX standards and the deploy runbooks. The method is written down so that any engineer, human or AI, can pick it up. AI-written does not mean locked in.</p>
+        </div>
+        <div>
+          <p class="eyebrow">What we check</p>
+          <p>Every AI write is proposed and confirmed, and the difference between proposed and executed is audited. Test and production are separate environments, nobody works in production, and every incident becomes a rule, a test or a guard.</p>
         </div>
       </div>
     </div>

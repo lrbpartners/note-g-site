@@ -90,7 +90,8 @@
   .hero-testimonial .q p { font-size: 1rem; line-height: 1.4; }
   .hero-testimonial .q-body { gap: .6rem; }
   .hero-testimonial .q footer { font-size: .82rem; }
-  .hero .actions { margin-top: 1.6rem; }
+  .hero-right { min-width: 0; display: grid; gap: 1.6rem; }
+  .hero .actions { margin-top: 0; }
   .model { margin: 0; min-width: 0; }
   .model svg { width: 100%; max-width: 100%; height: auto; display: block; overflow: visible; }
   .model .node circle { fill: var(--paper-2); stroke: var(--navy); stroke-width: 2; }
@@ -328,11 +329,8 @@
           </div>
         </blockquote>
         </div>
-        <div class="actions">
-          <a class="btn primary" href="#services">See how we work</a>
-          <a class="btn" href="#daisyflow">Explore Daisyflow.ai</a>
-        </div>
       </div>
+      <div class="hero-right">
       <figure class="clicks">
         <svg viewBox="0 0 520 298" role="img" aria-labelledby="clicksTitle" xmlns="http://www.w3.org/2000/svg">
           <title id="clicksTitle">Recording a family meeting: eleven steps across four screens the old way; one sentence, a proposal and one confirmation with Daisyflow Companion.</title>
@@ -375,6 +373,11 @@
         </svg>
         <figcaption>AI goes where it removes work without removing control. The product finds those places; a requirements list never does.</figcaption>
       </figure>
+        <div class="actions">
+          <a class="btn primary" href="#services">See how we work</a>
+          <a class="btn" href="#daisyflow">Explore Daisyflow.ai</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -383,7 +386,7 @@
       <div class="sec-head">
         <div>
           <p class="eyebrow">What makes this different</p>
-          <h2>The human correction is the product. The AI output is the draft.</h2>
+          <h2>The human validation is the product. The AI output is the draft.</h2>
         </div>
         <p class="lede">Most AI products treat the model's answer as the finished work. We treat it as a proposal. A person confirms every write before it reaches a record, every edit and rejection carries a reason, and the system learns from those corrections. That stance, plus three habits, is the whole method.</p>
       </div>

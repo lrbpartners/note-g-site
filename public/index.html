@@ -81,7 +81,11 @@
   .hero .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
   .hero .wrap { padding-block: 3.5rem 3rem; }
   .hero-testimonial { margin-top: 1.8rem; display: grid; gap: .7rem; }
-  .hero-testimonial .q { padding: 1.1rem 1.2rem; gap: 1rem; }
+  .hero-testimonial .q { padding: 1.1rem 1.2rem; gap: 1rem; background: var(--navy); border-color: var(--navy); }
+  .hero-testimonial .q p, .hero-testimonial .q footer strong { color: var(--navy-ink); }
+  .hero-testimonial .q footer { color: #B9C8DD; }
+  .hero-testimonial .q p::before, .hero-testimonial .q p::after { color: #7EE2D8; }
+  .hero-testimonial .q-photo { border-color: rgba(255,255,255,.35); }
   .hero-testimonial .q-photo { width: 72px; height: 72px; }
   .hero-testimonial .q p { font-size: 1rem; line-height: 1.4; }
   .hero-testimonial .q-body { gap: .6rem; }

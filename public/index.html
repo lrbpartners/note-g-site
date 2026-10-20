@@ -140,6 +140,13 @@
   .lightbox-close { position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.4); background: transparent; color: #fff; font-size: 1.4rem; border-radius: 50%; cursor: pointer; }
   .shot-frame img { display: block; width: 100%; height: auto; }
   .shot figcaption { font-family: var(--display); font-size: 1.1rem; line-height: 1.35; color: var(--navy-ink); padding-left: 1rem; border-left: 3px solid #7EE2D8; }
+  .shot-frame { position: relative; }
+  .play-cta { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: .6rem; padding: .8rem 1.2rem .8rem 1rem; border: 0; border-radius: 999px; background: var(--teal); color: #fff; font-family: var(--body); font-weight: 600; font-size: .98rem; cursor: pointer; box-shadow: 0 10px 28px rgba(0,0,0,.4); transition: transform .15s ease, background .15s ease; white-space: nowrap; }
+  .play-cta:hover { background: #178F84; transform: translate(-50%, -50%) scale(1.03); }
+  .play-icon { width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 12px; border-color: transparent transparent transparent #fff; }
+  .shot-frame.playing .play-cta { display: none; }
+  .shot-frame:not(.playing) video { filter: brightness(.82); }
+  @media (max-width: 480px) { .play-cta { font-size: .85rem; padding: .65rem 1rem .65rem .85rem; } }
   .clicks svg { width: 100%; max-width: 100%; height: auto; display: block; overflow: visible; font-family: var(--mono); }
   .clicks .c-eyebrow { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; fill: var(--teal); }
   .clicks .c-meta { font-size: 10px; letter-spacing: .06em; fill: var(--ink-2); }
@@ -436,10 +443,14 @@
         <figcaption>AI goes where it removes work without removing control. The product finds those places; a requirements list never does.</figcaption>
       </figure>
       <figure class="shot">
-        <div class="shot-frame">
-          <video src="https://summer-frost-4551.t3.tigrisfiles.io/training/websitevideo.mp4" poster="img/hero-companion.png" autoplay muted loop playsinline controls preload="metadata" aria-label="Daisyflow Companion: a one-sentence request becomes a proposed account, with the details Daisy found listed for confirmation"></video>
+        <div class="shot-frame" id="heroVideoFrame">
+          <video id="heroVideo" src="https://summer-frost-4551.t3.tigrisfiles.io/training/websitevideo.mp4" poster="img/hero-companion.png" playsinline preload="metadata" aria-label="Daisyflow Companion: a one-sentence request becomes a proposed account, with the details Daisy found listed for confirmation"></video>
+          <button type="button" class="play-cta" id="heroPlay">
+            <span class="play-icon" aria-hidden="true"></span>
+            Watch one sentence become five outcomes
+          </button>
         </div>
-        <figcaption>See Daisyflow in action.</figcaption>
+        <figcaption>See Daisyflow in action: one sentence becomes the account, the contact, a welcome email, a team chat post and an AI summary, each one confirmed by a person.</figcaption>
       </figure>
         <div class="tagline">
           <strong>Note G Labs unifies your entire client lifecycle into one intelligent backend.</strong>
@@ -931,6 +942,16 @@
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot"><button class="lightbox-close" type="button" aria-label="Close">&times;</button><img alt=""></div>
 <script>
+  (function () {
+    var frame = document.getElementById('heroVideoFrame'), v = document.getElementById('heroVideo'), b = document.getElementById('heroPlay');
+    if (!frame || !v || !b) return;
+    b.addEventListener('click', function () {
+      frame.classList.add('playing');
+      v.controls = true; v.muted = false;
+      v.play().catch(function () { v.muted = true; v.play(); });
+    });
+    v.addEventListener('ended', function () { frame.classList.remove('playing'); v.controls = false; });
+  })();
   (function () {
     var box = document.getElementById('lightbox'), img = box.querySelector('img');
     function close() { box.classList.remove('open'); img.src = ''; document.body.style.overflow = ''; }

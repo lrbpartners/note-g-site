@@ -129,10 +129,11 @@
   @media (max-width: 820px) { .hero .wrap { grid-template-columns: 1fr; padding-block: 3rem 2.5rem; } }
 
   .clicks { margin: 0; min-width: 0; display: grid; gap: .9rem; }
-  .shot { margin: 0; min-width: 0; display: grid; gap: .7rem; max-width: 460px; }
+  .shot { margin: 0; min-width: 0; display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 1.2rem; align-items: center; }
+  @media (max-width: 480px) { .shot { grid-template-columns: 1fr; } }
   .shot-frame { display: block; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 10px 30px rgba(16,33,58,.12); }
   .shot-frame img { display: block; width: 100%; height: auto; }
-  .shot figcaption { font-size: .88rem; line-height: 1.45; color: var(--ink-2); }
+  .shot figcaption { font-family: var(--display); font-size: 1.1rem; line-height: 1.35; color: var(--ink); padding-left: 1rem; border-left: 3px solid var(--teal); }
   .clicks svg { width: 100%; max-width: 100%; height: auto; display: block; overflow: visible; font-family: var(--mono); }
   .clicks .c-eyebrow { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; fill: var(--teal); }
   .clicks .c-meta { font-size: 10px; letter-spacing: .06em; fill: var(--ink-2); }
@@ -432,7 +433,7 @@
         <a href="img/hero-companion.png" class="shot-frame" target="_blank" rel="noopener" title="Open full size">
           <img src="img/hero-companion.png" alt="Daisyflow Companion: a one-sentence request has become a proposed account, with the details Daisy found listed for confirmation" width="838" height="729" loading="eager">
         </a>
-        <figcaption>One sentence in. Daisy proposes the account, finds the details, and waits for a person to confirm.</figcaption>
+        <figcaption>One sentence in. Daisy proposes the account, finds the details, and waits for a person to confirm. <span class="fine">Click to see it full size.</span></figcaption>
       </figure>
         <div class="tagline">
           <strong>Note G Labs unifies your entire client lifecycle into one intelligent backend.</strong>

@@ -63,7 +63,8 @@
   .name-block { display: grid; line-height: 1.05; }
   .brand .sub { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-top: .2rem; white-space: nowrap; }
   .brand .name { font-family: var(--display); font-size: 1.25rem; }
-  .nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; font-size: .92rem; }
+  .nav ul { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; font-size: .92rem; white-space: nowrap; }
+  @media (max-width: 1200px) { .nav ul { gap: .9rem; font-size: .86rem; } }
   .nav ul a { text-decoration: none; color: var(--ink-2); }
   .nav ul a:hover { color: var(--ink); }
   .dfwordmark { display: inline-flex; align-items: center; flex: none; }
@@ -73,7 +74,7 @@
   .nav.open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav.open .menu-btn span:nth-child(2) { opacity: 0; }
   .nav.open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     .nav .wrap { flex-wrap: wrap; }
     .nav ul { display: none; }
     .menu-btn { display: flex; order: 3; }
@@ -106,6 +107,9 @@
   .hero-testimonial .q footer { font-size: .82rem; }
   .hero-right { min-width: 0; display: grid; gap: 1.6rem; }
   .hero .actions { margin-top: 0; }
+  .hero .tagline { margin: 1.5rem 0 1.25rem; }
+  .hero .tagline strong { display: block; font-family: var(--display); font-size: 1.2rem; line-height: 1.35; color: var(--ink); margin-bottom: .5rem; }
+  .hero .tagline p { margin: 0; color: var(--ink-2); line-height: 1.55; }
   .model { margin: 0; min-width: 0; }
   .model svg { width: 100%; max-width: 100%; height: auto; display: block; overflow: visible; }
   .model .node circle { fill: var(--paper-2); stroke: var(--navy); stroke-width: 2; }
@@ -125,6 +129,12 @@
   @media (max-width: 820px) { .hero .wrap { grid-template-columns: 1fr; padding-block: 3rem 2.5rem; } }
 
   .clicks { margin: 0; min-width: 0; display: grid; gap: .9rem; }
+  .shot { margin: 0; min-width: 0; display: grid; gap: .8rem; }
+  .shot-frame { display: block; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 10px 30px rgba(16,33,58,.12); }
+  .shot-frame img { display: block; width: 100%; height: auto; }
+  .shot figcaption { font-family: var(--display); font-size: 1.1rem; line-height: 1.35; color: var(--ink); padding-left: 1rem; border-left: 3px solid var(--teal); }
+  .clicks-panel { margin-top: 3rem; padding: 1.4rem 1.5rem; background: var(--paper); color: var(--ink); border-radius: 3px; max-width: 640px; }
+  .clicks-panel .clicks figcaption { color: var(--ink); }
   .clicks svg { width: 100%; max-width: 100%; height: auto; display: block; overflow: visible; font-family: var(--mono); }
   .clicks .c-eyebrow { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; fill: var(--teal); }
   .clicks .c-meta { font-size: 10px; letter-spacing: .06em; fill: var(--ink-2); }
@@ -181,6 +191,10 @@
   .q p::after { content: "\201D"; color: var(--teal); margin-left: .1em; }
   .q footer { display: grid; gap: .15rem; font-size: .88rem; color: var(--ink-2); }
   .q footer strong { color: var(--ink); font-weight: 600; }
+  .q footer .name { display: flex; align-items: center; gap: .5rem; }
+  .q footer .li { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 3px; background: #0A66C2; color: #fff; text-decoration: none; }
+  .q footer .li svg { width: 14px; height: 14px; fill: currentColor; }
+  .q footer .li:hover { background: #004182; }
   .q-customer { grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 1.6rem; }
   .q-photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--teal-soft); }
   .q-body { display: grid; gap: 1rem; min-width: 0; }
@@ -190,6 +204,13 @@
   .q-customer p:nth-of-type(2)::after { content: "\201D"; color: var(--teal); margin-left: .1em; }
   @media (max-width: 560px) { .q-customer { grid-template-columns: 1fr; } }
   @media (max-width: 980px) { .pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .interop .pillars { margin-top: 2.5rem; }
+  .logo-strip { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  .logo-strip .eyebrow { margin-bottom: 1rem; }
+  .logos { display: flex; flex-wrap: wrap; gap: .6rem .7rem; list-style: none; margin: 0; padding: 0; }
+  .logos li { font-family: var(--display); font-size: 1.15rem; color: var(--ink); padding: .55rem 1rem; border: 1px solid var(--rule); border-radius: 3px; background: var(--paper-2); }
+  .logos li.more { font-family: var(--body); font-size: .95rem; color: var(--ink-2); border-style: dashed; background: transparent; }
+  .logo-strip .fine { display: block; margin-top: 1rem; }
   @media (max-width: 820px) { .quotes { grid-template-columns: 1fr; } }
   @media (max-width: 560px) { .pillars { grid-template-columns: 1fr; } }
 
@@ -337,6 +358,7 @@
       <li><a href="#difference">Why us</a></li>
       <li><a href="#services">Consulting</a></li>
       <li><a href="#code">How we build</a></li>
+      <li><a href="#interop">Interoperability</a></li>
       <li><a href="#uses">Who it's for</a></li>
       <li><a href="#why">Why Note G</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -360,54 +382,22 @@
           <div class="q-body">
             <p>At Appian Care, our top priority is providing our care team with the tools they need to deliver exceptional, seamless service to our members. We needed seamless integration of CRM and practice management to give our care team the easiest, most efficient tools to deliver great service.</p>
             <p>After testing and evaluating numerous options, we partnered with Lora and Daisyflow to build an AI-driven, fully customizable platform tailored to our unique workflows. We couldn't be more excited to be design partners with Daisyflow and have already seen the enormous benefits and efficiency of this.</p>
-            <footer><strong>Ben Kruger</strong><span>Founder and CEO, Appian Care</span></footer>
+            <footer><span class="name"><strong>Ben Kruger</strong><a class="li" href="https://www.linkedin.com/in/ben-kruger-appian/" target="_blank" rel="noopener" aria-label="Ben Kruger on LinkedIn" title="Ben Kruger on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span><span>Founder and CEO, Appian Care</span></footer>
           </div>
         </blockquote>
         </div>
       </div>
       <div class="hero-right">
-      <figure class="clicks">
-        <svg viewBox="0 0 520 298" role="img" aria-labelledby="clicksTitle" xmlns="http://www.w3.org/2000/svg">
-          <title id="clicksTitle">Recording a family meeting: eleven steps across four screens the old way; one sentence, a proposal and one confirmation with Daisyflow Companion.</title>
-          <defs>
-            <marker id="arrowC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M0,0 L10,5 L0,10 z" fill="var(--teal)"/>
-            </marker>
-          </defs>
-          <text x="0" y="16" class="c-eyebrow">The old way</text>
-          <text x="520" y="16" class="c-meta" text-anchor="end">record a family meeting · 11 steps · 4 screens</text>
-          <g class="old">
-            <rect x="0" y="28" width="44" height="30" rx="3"/><rect x="48" y="28" width="44" height="30" rx="3"/><rect x="96" y="28" width="44" height="30" rx="3"/><rect x="144" y="28" width="44" height="30" rx="3"/><rect x="192" y="28" width="44" height="30" rx="3"/><rect x="240" y="28" width="44" height="30" rx="3"/><rect x="288" y="28" width="44" height="30" rx="3"/><rect x="336" y="28" width="44" height="30" rx="3"/><rect x="384" y="28" width="44" height="30" rx="3"/><rect x="432" y="28" width="44" height="30" rx="3"/><rect x="480" y="28" width="40" height="30" rx="3"/>
-            <text x="22" y="47" text-anchor="middle">open</text><text x="70" y="47" text-anchor="middle">search</text><text x="118" y="47" text-anchor="middle">new</text><text x="166" y="47" text-anchor="middle">type</text><text x="214" y="47" text-anchor="middle">save</text><text x="262" y="47" text-anchor="middle">contact</text><text x="310" y="47" text-anchor="middle">type</text><text x="358" y="47" text-anchor="middle">save</text><text x="406" y="47" text-anchor="middle">task</text><text x="454" y="47" text-anchor="middle">assign</text><text x="500" y="47" text-anchor="middle">save</text>
-          </g>
-          <text x="0" y="84" class="c-note">Every box is a decision the person already made in the meeting, typed again into a form.</text>
-
-          <text x="0" y="140" class="c-eyebrow">With Daisyflow.ai</text>
-          <text x="520" y="140" class="c-meta" text-anchor="end">say it · see it · confirm it</text>
-          <g class="new">
-            <rect x="0" y="152" width="250" height="86" rx="3"/>
-            <text class="h" x="125" y="176" text-anchor="middle">One sentence</text>
-            <text class="d" x="125" y="196" text-anchor="middle">"Met the Whitfields."</text>
-            <text class="d" x="125" y="209" text-anchor="middle">"Claire is the point of contact."</text>
-          </g>
-          <line x1="250" y1="195" x2="284" y2="195" stroke="var(--teal)" stroke-width="2" marker-end="url(#arrowC)"/>
-          <g class="new">
-            <rect x="290" y="152" width="138" height="86" rx="3"/>
-            <text class="h" x="359" y="176" text-anchor="middle">Proposed</text>
-            <text class="d" x="359" y="196" text-anchor="middle">household · 1 email</text>
-            <text class="d" x="359" y="209" text-anchor="middle">2 contacts · 3 tasks</text>
-            <text class="d" x="359" y="222" text-anchor="middle">2 chats</text>
-          </g>
-          <line x1="428" y1="195" x2="462" y2="195" stroke="var(--teal)" stroke-width="2" marker-end="url(#arrowC)"/>
-          <g class="new confirm">
-            <rect x="468" y="152" width="52" height="86" rx="3"/>
-            <text class="h" x="494" y="200" text-anchor="middle">OK</text>
-          </g>
-          <text x="0" y="266" class="c-note">The judgment stays with the person.</text>
-          <text x="0" y="284" class="c-note">The typing, navigating and re-entering disappear.</text>
-        </svg>
-        <figcaption>AI goes where it removes work without removing control. The product finds those places; a requirements list never does.</figcaption>
+      <figure class="shot">
+        <a href="img/hero-companion.png" class="shot-frame" target="_blank" rel="noopener" title="Open full size">
+          <img src="img/hero-companion.png" alt="Daisyflow Companion: a one-sentence request has become a proposed account, with the details Daisy found listed for confirmation" width="838" height="729" loading="eager">
+        </a>
+        <figcaption>One sentence in. Daisy proposes the account, finds the details, and waits for a person to confirm.</figcaption>
       </figure>
+        <div class="tagline">
+          <strong>Note G Labs unifies your entire client lifecycle into one intelligent backend.</strong>
+          <p>Unlike surface-level AI plugins, Note G Labs curates your business context, executes routine operations, and keeps your team in control with human-in-the-loop validation for every action.</p>
+        </div>
         <div class="actions">
           <a class="btn primary" href="#services">See how we work</a>
           <a class="btn" href="#daisyflow">Explore Daisyflow.ai</a>
@@ -721,6 +711,51 @@
         </dl>
       </div>
 
+      <div class="clicks-panel">
+      <figure class="clicks">
+        <svg viewBox="0 0 520 298" role="img" aria-labelledby="clicksTitle" xmlns="http://www.w3.org/2000/svg">
+          <title id="clicksTitle">Recording a family meeting: eleven steps across four screens the old way; one sentence, a proposal and one confirmation with Daisyflow Companion.</title>
+          <defs>
+            <marker id="arrowC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--teal)"/>
+            </marker>
+          </defs>
+          <text x="0" y="16" class="c-eyebrow">The old way</text>
+          <text x="520" y="16" class="c-meta" text-anchor="end">record a family meeting · 11 steps · 4 screens</text>
+          <g class="old">
+            <rect x="0" y="28" width="44" height="30" rx="3"/><rect x="48" y="28" width="44" height="30" rx="3"/><rect x="96" y="28" width="44" height="30" rx="3"/><rect x="144" y="28" width="44" height="30" rx="3"/><rect x="192" y="28" width="44" height="30" rx="3"/><rect x="240" y="28" width="44" height="30" rx="3"/><rect x="288" y="28" width="44" height="30" rx="3"/><rect x="336" y="28" width="44" height="30" rx="3"/><rect x="384" y="28" width="44" height="30" rx="3"/><rect x="432" y="28" width="44" height="30" rx="3"/><rect x="480" y="28" width="40" height="30" rx="3"/>
+            <text x="22" y="47" text-anchor="middle">open</text><text x="70" y="47" text-anchor="middle">search</text><text x="118" y="47" text-anchor="middle">new</text><text x="166" y="47" text-anchor="middle">type</text><text x="214" y="47" text-anchor="middle">save</text><text x="262" y="47" text-anchor="middle">contact</text><text x="310" y="47" text-anchor="middle">type</text><text x="358" y="47" text-anchor="middle">save</text><text x="406" y="47" text-anchor="middle">task</text><text x="454" y="47" text-anchor="middle">assign</text><text x="500" y="47" text-anchor="middle">save</text>
+          </g>
+          <text x="0" y="84" class="c-note">Every box is a decision the person already made in the meeting, typed again into a form.</text>
+
+          <text x="0" y="140" class="c-eyebrow">With Daisyflow.ai</text>
+          <text x="520" y="140" class="c-meta" text-anchor="end">say it · see it · confirm it</text>
+          <g class="new">
+            <rect x="0" y="152" width="250" height="86" rx="3"/>
+            <text class="h" x="125" y="176" text-anchor="middle">One sentence</text>
+            <text class="d" x="125" y="196" text-anchor="middle">"Met the Whitfields."</text>
+            <text class="d" x="125" y="209" text-anchor="middle">"Claire is the point of contact."</text>
+          </g>
+          <line x1="250" y1="195" x2="284" y2="195" stroke="var(--teal)" stroke-width="2" marker-end="url(#arrowC)"/>
+          <g class="new">
+            <rect x="290" y="152" width="138" height="86" rx="3"/>
+            <text class="h" x="359" y="176" text-anchor="middle">Proposed</text>
+            <text class="d" x="359" y="196" text-anchor="middle">household · 1 email</text>
+            <text class="d" x="359" y="209" text-anchor="middle">2 contacts · 3 tasks</text>
+            <text class="d" x="359" y="222" text-anchor="middle">2 chats</text>
+          </g>
+          <line x1="428" y1="195" x2="462" y2="195" stroke="var(--teal)" stroke-width="2" marker-end="url(#arrowC)"/>
+          <g class="new confirm">
+            <rect x="468" y="152" width="52" height="86" rx="3"/>
+            <text class="h" x="494" y="200" text-anchor="middle">OK</text>
+          </g>
+          <text x="0" y="266" class="c-note">The judgment stays with the person.</text>
+          <text x="0" y="284" class="c-note">The typing, navigating and re-entering disappear.</text>
+        </svg>
+        <figcaption>AI goes where it removes work without removing control. The product finds those places; a requirements list never does.</figcaption>
+      </figure>
+      </div>
+
       <div class="feats">
         <div class="feat"><h3>Daisyflow Companion</h3><p>Talk or type. Capture a meeting, create a household with its contacts and tasks, draft an email, ask a question about any member. Integrates with meeting transcripts such as Google Meet, so a recorded call becomes records and follow-ups. Every write is shown before it happens.</p></div>
         <div class="feat"><h3>A home page for every role</h3><p>Executives open to a Daily Brief and the growth picture. Care advocates open to what needs them today, their caseload and their tasks, with inbound mail and chat already triaged. The COO opens to Pulse. Same records, each person's own view.</p></div>
@@ -746,6 +781,53 @@
         <a class="btn primary" href="#contact">Request a walkthrough</a>
         <a class="btn" href="#uses">Who it's for</a>
         <span class="fine">Built with the Operating Architecture method. Note G Labs' proof of concept for AI as architecture.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec interop" id="interop">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Interoperability</p>
+          <h2>An open platform. APIs and MCP, not a walled garden.</h2>
+        </div>
+        <p class="lede">Daisyflow is built API-first. Every record and every action the screens can take is available over a documented REST API, and the same capabilities are exposed as MCP services, so an AI agent, ours or yours, can read the business and act in it. Your data goes in and comes out on your terms.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Open API</h3>
+          <p>Accounts, contacts, opportunities, tasks, notes, messages and the audit trail, readable and writable over REST with webhooks for change events. The UI is just one client of it.</p>
+        </div>
+        <div class="pillar">
+          <h3>MCP services</h3>
+          <p>Daisyflow's skills are published as Model Context Protocol tools, so any MCP-capable assistant can look up a household, draft a follow-up or queue a task, with the same human confirmation step every action gets.</p>
+        </div>
+        <div class="pillar">
+          <h3>Your systems stay</h3>
+          <p>Keep the CRM, mail, calendar, EHR or finance system you already run. Daisyflow connects to it, keeps the relationship picture current across them, and never asks you to rip anything out.</p>
+        </div>
+        <div class="pillar">
+          <h3>Nothing locked in</h3>
+          <p>One deployment per customer, your database, a full export at any time. Leaving is as easy as joining, which is the only honest way to earn a renewal.</p>
+        </div>
+      </div>
+      <div class="logo-strip">
+        <p class="eyebrow">Connects to anything with an API, including</p>
+        <ul class="logos">
+          <li>Salesforce</li>
+          <li>HubSpot</li>
+          <li>Slack</li>
+          <li>Microsoft 365</li>
+          <li>Google Workspace</li>
+          <li>Epic</li>
+          <li>Oracle Health</li>
+          <li>athenahealth</li>
+          <li>Twilio</li>
+          <li>QuickBooks</li>
+          <li class="more">and any system with a REST API or MCP server</li>
+        </ul>
+        <span class="fine">Product names are trademarks of their respective owners and indicate compatibility, not endorsement.</span>
       </div>
     </div>
   </section>

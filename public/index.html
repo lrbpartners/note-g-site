@@ -106,7 +106,9 @@
   .hero-testimonial .q-body { gap: .6rem; }
   .hero-testimonial .q footer { font-size: .82rem; }
   .hero-right { min-width: 0; display: grid; gap: 1.6rem; }
-  .hero .actions { margin-top: 0; }
+  .hero .actions { margin-top: 0; flex-wrap: nowrap; gap: .6rem; }
+  .hero .actions .btn { white-space: nowrap; padding-inline: 1rem; }
+  @media (max-width: 480px) { .hero .actions { flex-wrap: wrap; } }
   .hero .tagline { margin: 1.5rem 0 1.25rem; }
   .hero .tagline strong { display: block; font-family: var(--display); font-size: 1.2rem; line-height: 1.35; color: var(--ink); margin-bottom: .5rem; }
   .hero .tagline p { margin: 0; color: var(--ink-2); line-height: 1.55; }
@@ -444,7 +446,7 @@
           <p>Unlike surface-level AI plugins, Note G Labs curates your business context, executes routine operations, and keeps your team in control with human-in-the-loop validation for every action.</p>
         </div>
         <div class="actions">
-          <a class="btn primary" href="#contact">Request a walkthrough</a>
+          <a class="btn primary" href="https://calendly.com/lora-lrb-partners" target="_blank" rel="noopener">Book a chat</a>
           <a class="btn" href="#services">See how we work</a>
           <a class="btn" href="#daisyflow">Explore Daisyflow.ai</a>
         </div>
